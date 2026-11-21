@@ -1,0 +1,88 @@
+buildscript {
+    repositories {
+        maven { url = "https://maven.minecraftforge.net/" }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+version = "1.0.0"
+group = mod_group_id
+archivesBaseName = "no-attack-cooldown-1.12.2-forge"
+
+ext.mod_id = "itamionoatk"
+ext.mod_name = "No Attack Cooldown — Itamio Port"
+ext.mod_description = "Removes the vanilla attack cooldown: every swing reports full attack strength. Does not add an always-sweep attack."
+ext.mod_license = "BSD-2-Clause"
+
+sourceCompatibility = targetCompatibility = '1.8'
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+    options.encoding = 'UTF-8'
+    // MixinBooter bundles MixinExtras' annotation processor, whose static
+    // initialiser assumes an FML runtime and crashes javac. The refmap for our
+    // one @Inject target is checked in as a resource instead, so disable APs.
+    options.compilerArgs += ['-proc:none']
+}
+
+minecraft {
+    version = "1.12.2-14.23.5.2847"
+    runDir = "run"
+    mappings = "stable_39"
+    makeObfSourceJar = false
+}
+
+repositories {
+    mavenCentral()
+    // MixinBooter provides Mixin to Forge 1.12.2. Mixin is NOT shaded by this mod.
+    maven { name = 'CleanroomMC'; url = 'https://maven.cleanroommc.com/' }
+    maven { name = 'SpongePowered'; url = 'https://repo.spongepowered.org/maven/' }
+}
+
+dependencies {
+    compile "zone.rong:mixinbooter:7.1"
+}
+
+// MixinBooter discovers FML core plugins implementing IEarlyMixinLoader and
+// queues the mixin configs they return. FMLCorePluginContainsFMLMod keeps the
+// regular @Mod class loading as well.
+jar {
+    manifest {
+        attributes 'FMLCorePlugin': 'itamio.iamnoattackcooldown.core.NoAttackCooldownCorePlugin',
+                   'FMLCorePluginContainsFMLMod': 'true'
+    }
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+    inputs.property "mod_id", project.mod_id
+    inputs.property "mod_name", project.mod_name
+    inputs.property "mod_description", project.mod_description
+    inputs.property "mod_license", project.mod_license
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info', 'pack.mcmeta'
+        expand 'version': project.version,
+               'mcversion': project.minecraft.version,
+               'mod_id': project.mod_id,
+               'mod_name': project.mod_name,
+               'mod_description': project.mod_description,
+               'mod_license': project.mod_license
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info', 'pack.mcmeta'
+    }
+}
+
+tasks.whenTaskAdded { task ->
+    if (task.name == 'getAssets') {
+        task.enabled = false
+    }
+}

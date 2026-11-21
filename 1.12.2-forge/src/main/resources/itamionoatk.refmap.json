@@ -1,0 +1,14 @@
+{
+  "mappings": {
+    "itamio/iamnoattackcooldown/mixin/EntityPlayerMixin": {
+      "getCooledAttackStrength": "Lnet/minecraft/entity/player/EntityPlayer;func_184825_o(F)F"
+    }
+  },
+  "data": {
+    "searge": {
+      "itamio/iamnoattackcooldown/mixin/EntityPlayerMixin": {
+        "getCooledAttackStrength": "Lnet/minecraft/entity/player/EntityPlayer;func_184825_o(F)F"
+      }
+    }
+  }
+}

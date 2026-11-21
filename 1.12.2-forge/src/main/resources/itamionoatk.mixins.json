@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "itamio.iamnoattackcooldown.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "itamionoatk.refmap.json",
+  "mixins": [
+    "EntityPlayerMixin"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

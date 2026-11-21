@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="BSD-2-Clause"
+
+[[mods]]
+modId="itamionoatk"
+version="1.0.0"
+displayName="No Attack Cooldown — Itamio Port"
+authors="Sekai0NI0itamio"
+credits="Adapted from makaseloli's No Attack Cooldown (BSD-2-Clause)."
+description='''Removes the vanilla attack cooldown: every swing reports full attack strength. Does not add an always-sweep attack.'''
+
+[[mixins]]
+config="itamionoatk.mixins.json"
+
+[[dependencies.itamionoatk]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.itamionoatk]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.21)"
+    ordering="NONE"
+    side="BOTH"
