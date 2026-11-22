@@ -43,7 +43,7 @@ jobs:
         if: matrix.variant == '1.12.2-forge'
         run: |
           mkdir -p server/mods
-          curl -fsSL -o server/mods/mixinbooter.jar \
+          curl -fsSL -o "server/mods/!mixinbooter.jar" \
             https://maven.cleanroommc.com/zone/rong/mixinbooter/7.1/mixinbooter-7.1.jar
 
       - name: Launch Minecraft ${{ matrix.mc }} client (${{ matrix.loader }})
