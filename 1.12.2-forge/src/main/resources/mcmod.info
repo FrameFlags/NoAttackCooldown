@@ -1,21 +1,20 @@
-[{
-  "modid": "itamionoatk",
-  "name": "No Attack Cooldown — Itamio Port",
-  "description": "Removes the vanilla attack cooldown: every swing reports full attack strength. Does not add an always-sweep attack.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "https://github.com/makaseloli/No-Attack-Cooldown",
-  "updateUrl": "",
-  "authorList": ["Sekai0NI0itamio"],
-  "credits": "Adapted from makaseloli's No Attack Cooldown (BSD-2-Clause).",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": [
-    {
-      "modid": "mixinbooter",
-      "name": "MixinBooter",
-      "version": "[7.1,)",
-      "mandatory": true
-    }
-  ]
-}]
+[
+  {
+    "modid": "itamionoatk",
+    "name": "No Attack Cooldown — Itamio Port",
+    "description": "Removes the vanilla attack cooldown: every swing reports full attack strength. Does not add an always-sweep attack.",
+    "version": "1.0.0",
+    "mcversion": "1.12.2",
+    "url": "https://github.com/makaseloli/No-Attack-Cooldown",
+    "updateUrl": "",
+    "authorList": [
+      "Sekai0NI0itamio"
+    ],
+    "credits": "Adapted from makaseloli's No Attack Cooldown (BSD-2-Clause).",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": [
+      "mixinbooter@[7.1,)"
+    ]
+  }
+]
