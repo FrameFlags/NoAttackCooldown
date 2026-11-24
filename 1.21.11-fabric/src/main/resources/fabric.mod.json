@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "itamionoatk",
+  "version": "${version}",
+  "name": "No Attack Cooldown — Itamio Port",
+  "description": "Removes the vanilla attack cooldown: every swing reports full attack strength. Does not add an always-sweep attack.",
+  "authors": [
+    "Sekai0NI0itamio"
+  ],
+  "contact": {
+    "homepage": "https://github.com/makaseloli/No-Attack-Cooldown",
+    "sources": "https://github.com/FrameFlags/NoAttackCooldown",
+    "issues": "https://github.com/FrameFlags/NoAttackCooldown/issues"
+  },
+  "license": "BSD-2-Clause",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "itamio.iamnoattackcooldown.NoAttackCooldownMod"
+    ]
+  },
+  "mixins": [
+    "itamionoatk.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
